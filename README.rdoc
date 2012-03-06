@@ -1,0 +1,27 @@
+= Detroit Mast Tool
+
+
+== DESCRIPTION
+
+The Mast tool provides MANIFEST generatation and automatic
+updating.
+
+See http://rubyworks.github.com/mast for more information.
+
+
+== INSTALL
+
+Per the usual gem install process:
+
+  $ gem install detroit-mast
+
+
+== COPYRIGHT
+
+Copyright (c) 2011 Rubyworks
+
+Detroit Mast is distributable in accordance with the *GPL v.3*
+open source license.
+
+See COPYING.rdoc and GPL3.txt file for details.
+

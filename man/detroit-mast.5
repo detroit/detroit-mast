@@ -1,0 +1,85 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "DETROIT\-LOCAT" "5" "March 2012" "" ""
+.
+.SH "NAME"
+\fBdetroit\-locat\fR \- generate/update project manifest
+.
+.SH "DESCRIPTION"
+The Mast plug\-in for Detroit utilize the mast command line tool to generate and update project manifests\.
+.
+.SH "OPTIONS"
+The following options can be used in the Detroit assembly file for defining a Mast service\.
+.
+.IP "\(bu" 4
+\fBinclude\fR \- File to include in manifest\.
+.
+.IP "\(bu" 4
+\fBexclude\fR \- Exclude subpaths of \fBinclude\fR\.
+.
+.IP "\(bu" 4
+\fBignore\fR \- Ignore subpaths of \fBpath\fR based on basename of path\.
+.
+.IP "\(bu" 4
+\fBoutput\fR \- File in which to save results\.
+.
+.IP "" 0
+.
+.P
+All of these have common defaults, so they often can be left alone\.
+.
+.SH "EXAMPLES"
+The typical assembly file entry will be something like:
+.
+.IP "" 4
+.
+.nf
+
+mast:
+  include: [\.ruby, \.yardopts, bin, lib, test, [A\-Z]*\.*]
+  output: MANIFEST\.txt
+.
+.fi
+.
+.IP "" 0
+.
+.P
+Of course, these are the default settings so a simple:
+.
+.IP "" 4
+.
+.nf
+
+mast:
+  active: true
+.
+.fi
+.
+.IP "" 0
+.
+.P
+will likely do the trick\.
+.
+.SH "RESOURCES"
+For more information:
+.
+.IP "\(bu" 4
+API Reference \fIhttp://rubydoc\.info/gems/detroit\-mast\fR
+.
+.IP "\(bu" 4
+Development Site \fIhttp://github\.com/detroit/detroit\-mast\fR
+.
+.IP "\(bu" 4
+Detroit Project \fIhttp://detroit\.github\.com\fR
+.
+.IP "" 0
+.
+.SH "COPYRIGHT"
+Copyright (c) 2011 Thomas Sawyer, Rubyworks
+.
+.P
+Detroit Mast is distributable in accordance with the GPL v3\.0 license\.
+.
+.SH "SEE ALSO"
+detroit(1), mast(1)

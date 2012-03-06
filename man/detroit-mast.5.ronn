@@ -1,0 +1,62 @@
+detroit-locat(5) - generate/update project manifest
+===================================================
+
+## DESCRIPTION
+
+The Mast plug-in for Detroit utilize the mast command line tool
+to generate and update project manifests.
+
+
+## OPTIONS
+
+The following options can be used in the Detroit assembly file
+for defining a Mast service.
+
+  * `include` - File to include in manifest.
+
+  * `exclude` - Exclude subpaths of `include`.
+
+  * `ignore` - Ignore subpaths of `path` based on basename of path.
+
+  * `output` - File in which to save results.
+
+All of these have common defaults, so they often can be left alone.
+
+
+## EXAMPLES
+
+The typical assembly file entry will be something like:
+
+    mast:
+      include: [.ruby, .yardopts, bin, lib, test, [A-Z]*.*]
+      output: MANIFEST.txt
+
+Of course, these are the default settings so a simple:
+
+    mast:
+      active: true
+
+will likely do the trick.
+
+
+## RESOURCES
+
+For more information:
+
+  * [API Reference](http://rubydoc.info/gems/detroit-mast)
+
+  * [Development Site](http://github.com/detroit/detroit-mast)
+
+  * [Detroit Project](http://detroit.github.com)
+
+
+## COPYRIGHT
+
+Copyright (c) 2011 Thomas Sawyer, Rubyworks
+
+Detroit Mast is distributable in accordance with the GPL v3.0 license.
+
+
+## SEE ALSO
+
+detroit(1), mast(1)
