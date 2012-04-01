@@ -6,32 +6,6 @@ module Detroit
   #
   class Mast < Tool
 
-    #  A S S E M B L Y  S T A T I O N S
-
-    # It's important to update the manifest before
-    # other generators.
-    def station_pre_generate
-      generate
-    end
-
-    #def station_reset
-    #  reset
-    #end
-
-    #def station_clean
-    #  clean
-    #end
-
-    # Not that this is necessary, but ...
-    #available do |project|
-    #  begin
-    #    require 'mast'
-    #    true
-    #  rescue LoadError
-    #    false
-    #  end
-    #end
-
     # Default MANIFEST filename.
     DEFAULT_FILENAME = 'MANIFEST'
 
@@ -44,6 +18,16 @@ module Detroit
     # Default files/dirs to ignore. Unlike exclude, this work
     # on path basenames, and not full pathnames.
     DEFAULT_IGNORE = nil #%w{}
+
+    # Not that this is necessary, but ...
+    #def self.available?(project)
+    #  begin
+    #    require 'mast'
+    #    true
+    #  rescue LoadError
+    #    false
+    #  end
+    #end
 
     #
     attr_accessor :include
@@ -62,6 +46,22 @@ module Detroit
     #  @output = Pathname.new(path)
     #end
 
+    #  A S S E M B L Y  M E T H O D S
+
+    def assemble?(station, options={})
+      case station
+      when :pre_generate then true
+      end
+    end
+
+    # It's important to update the manifest before other generators, so
+    # this plugs into the :pre_generate phase.
+    def assemble(station, options={})
+      case station
+      when :pre_generate then generate
+      end
+    end
+
     #
     def manifest
       @manifest ||= ::Mast::Manifest.new(options)
@@ -70,8 +70,11 @@ module Detroit
     # Generate manifest.
     # TODO: don't overwrite if it hasn't changed
     def generate
-      if manifest.changed?
-        file = manifest.save #update #generate
+      if !file #manifest.exist? (future version of mast)
+        file = manifest.save
+        report "Created #{file.to_s.sub(Dir.pwd+'/','')}"
+      elsif manifest.changed?
+        file = manifest.update
         report "Updated #{file.to_s.sub(Dir.pwd+'/','')}"
         #report "Updated #{output.to_s.sub(Dir.pwd+'/','')}"
       else
@@ -92,6 +95,11 @@ module Detroit
   private
 
     #
+    def initialize_requires
+      require 'mast'
+    end
+
+    #
     def initialize_defaults
       @include = DEFAULT_INCLUDE
       @exclude = DEFAULT_EXCLUDE
@@ -101,7 +109,7 @@ module Detroit
 
     #
     def file
-      project.root.glob("MANIFEST{,.txt}").first
+      project.root.glob("MANIFEST{,.txt}", File::FNM_CASEFOLD).first
     end
 
     #
