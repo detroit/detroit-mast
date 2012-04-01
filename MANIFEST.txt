@@ -1,0 +1,9 @@
+#!mast .ruby bin lib man qed test [A-Z]*.*
+.ruby
+lib/detroit-mast.rb
+man/detroit-mast.5
+man/detroit-mast.5.html
+man/detroit-mast.5.ronn
+LICENSE.txt
+README.rdoc
+COPYING.rdoc

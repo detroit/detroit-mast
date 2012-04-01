@@ -23,10 +23,12 @@ extra: {}
 load_path:
 - lib
 revision: 0
+created: '2011-10-16'
 summary: Mast plugin for Detroit
 title: Detroit Mast
 version: 0.2.0
 name: detroit-mast
+suite: detroit
 description: ! 'Mast plugin for Detroit build system. Generate and update MANIFEST
   file for
 
