@@ -1,5 +1,9 @@
 = Detroit Mast Tool
 
+{Website}[http://rubyworks.github.com/detroit-mast] /
+{Report Issue}[http://github.com/rubyworks/detroit-mast/issues] /
+{Repository}[http://github.com/rubyworks/detroit-mast]
+
 
 == DESCRIPTION
 
