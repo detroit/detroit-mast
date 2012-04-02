@@ -33,5 +33,5 @@ description: ! 'Mast plugin for Detroit build system. Generate and update MANIFE
   file for
 
   your project.'
-organization: detroit
+organization: rubyworks
 date: '2012-04-01'
