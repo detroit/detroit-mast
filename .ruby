@@ -9,8 +9,9 @@ copyrights:
   year: '2011'
   license: GPL3
 requirements:
-- name: mast
 - name: detroit
+  version: 0.3.0+
+- name: mast
 dependencies: []
 alternatives: []
 conflicts: []
