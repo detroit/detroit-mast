@@ -5,3 +5,5 @@ log
 pkg
 tmp
 web
+man/*.html
+man/*.5

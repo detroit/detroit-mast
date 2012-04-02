@@ -1,5 +1,5 @@
-detroit-locat(5) - generate/update project manifest
-===================================================
+detroit-mast(5) - generate/update project manifest
+==================================================
 
 ## DESCRIPTION
 
